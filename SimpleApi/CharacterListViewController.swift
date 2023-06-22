@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewController: UITableViewController {
+final class CharacterListViewController: UITableViewController {
     
     private let networkManager = NetworkManager.shared
     let link = "https://rickandmortyapi.com/api/character/"

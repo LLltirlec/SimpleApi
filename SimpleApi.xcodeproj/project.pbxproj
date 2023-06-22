@@ -14,10 +14,10 @@
 		7CE737AA2A40E3200094BF22 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CE737A82A40E3200094BF22 /* LaunchScreen.storyboard */; };
 		7CE737B22A40E35A0094BF22 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE737B12A40E35A0094BF22 /* Character.swift */; };
 		7CE737B42A438C860094BF22 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE737B32A438C860094BF22 /* NetworkManager.swift */; };
-		7CE737B62A4393FF0094BF22 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE737B52A4393FF0094BF22 /* TableViewCell.swift */; };
+		7CE737B62A4393FF0094BF22 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE737B52A4393FF0094BF22 /* CharacterCell.swift */; };
 		7CE737B82A43956B0094BF22 /* ShowInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE737B72A43956B0094BF22 /* ShowInfo.xib */; };
 		7CE737BA2A4395D80094BF22 /* ShowInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE737B92A4395D80094BF22 /* ShowInfo.swift */; };
-		7CE737C42A439A500094BF22 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE737C32A439A500094BF22 /* TableViewController.swift */; };
+		7CE737C42A439A500094BF22 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE737C32A439A500094BF22 /* CharacterListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +30,10 @@
 		7CE737AB2A40E3200094BF22 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CE737B12A40E35A0094BF22 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		7CE737B32A438C860094BF22 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		7CE737B52A4393FF0094BF22 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		7CE737B52A4393FF0094BF22 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 		7CE737B72A43956B0094BF22 /* ShowInfo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowInfo.xib; sourceTree = "<group>"; };
 		7CE737B92A4395D80094BF22 /* ShowInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfo.swift; sourceTree = "<group>"; };
-		7CE737C32A439A500094BF22 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		7CE737C32A439A500094BF22 /* CharacterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		7CE737C02A43968C0094BF22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7CE737B52A4393FF0094BF22 /* TableViewCell.swift */,
+				7CE737B52A4393FF0094BF22 /* CharacterCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				7CE737BB2A4395DF0094BF22 /* ShowInfoViewController */,
-				7CE737C32A439A500094BF22 /* TableViewController.swift */,
+				7CE737C32A439A500094BF22 /* CharacterListViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -220,9 +220,9 @@
 			files = (
 				7CE7379E2A40E31F0094BF22 /* AppDelegate.swift in Sources */,
 				7CE737BA2A4395D80094BF22 /* ShowInfo.swift in Sources */,
-				7CE737C42A439A500094BF22 /* TableViewController.swift in Sources */,
+				7CE737C42A439A500094BF22 /* CharacterListViewController.swift in Sources */,
 				7CE737B42A438C860094BF22 /* NetworkManager.swift in Sources */,
-				7CE737B62A4393FF0094BF22 /* TableViewCell.swift in Sources */,
+				7CE737B62A4393FF0094BF22 /* CharacterCell.swift in Sources */,
 				7CE737B22A40E35A0094BF22 /* Character.swift in Sources */,
 				7CE737A02A40E31F0094BF22 /* SceneDelegate.swift in Sources */,
 			);
