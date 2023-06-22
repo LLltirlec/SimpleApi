@@ -5,26 +5,33 @@
 //  Created by Евгений Ефимов on 19.06.2023.
 //
 
+import Foundation
+
 struct CharacterFromCartoon: Decodable {
     let name: String
     let status: String
     let species: String
     let type: String
     let gender: String
-    let origin: Origin
-    let location: Location
-    let image: String
+    let origin: SecInfo
+    let location: SecInfo
+    let image: URL
     let episode: [String]
-    let url: String
-    let created: String
 }
 
-struct Origin: Decodable {
+struct SecInfo: Decodable {
     let name: String
     let url: String
 }
 
-struct Location: Decodable {
+struct Episode: Decodable {
     let name: String
-    let url: String
+    let airDate: String
+    let episode: String
+    
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case airDate = "air_date"
+        case episode = "episode"
+    }
 }
