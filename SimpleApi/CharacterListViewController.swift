@@ -12,6 +12,7 @@ final class CharacterListViewController: UITableViewController {
     private let networkManager = NetworkManager.shared
     private var characters: RickAndMorty!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         

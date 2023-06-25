@@ -11,10 +11,13 @@ final class CharacterCell: UITableViewCell {
 
     @IBOutlet weak var characterImage: UIImageView!
     @IBOutlet weak var characterName: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private let networkManager = NetworkManager.shared
     
     func configure(with config: Character?) {
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
         guard let config else { return }
         characterName.text = config.name
         
@@ -22,6 +25,7 @@ final class CharacterCell: UITableViewCell {
             switch result {
             case .success(let image):
                 self?.characterImage.image = UIImage(data: image)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error)
             }

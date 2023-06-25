@@ -42,15 +42,21 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="KWL-Pp-0e3">
+                                            <rect key="frame" x="54.666666666666657" y="54.666666666666657" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="lbn-o4-PFy" secondAttribute="trailing" id="7cP-Yp-41H"/>
+                                        <constraint firstItem="KWL-Pp-0e3" firstAttribute="centerX" secondItem="S0S-uk-mBk" secondAttribute="centerX" id="9hx-XZ-LIj"/>
                                         <constraint firstItem="lbn-o4-PFy" firstAttribute="top" secondItem="BsK-75-4bp" secondAttribute="top" id="COc-XM-h6W"/>
                                         <constraint firstAttribute="bottom" secondItem="lbn-o4-PFy" secondAttribute="bottom" id="GvD-9Z-JMm"/>
+                                        <constraint firstItem="KWL-Pp-0e3" firstAttribute="centerY" secondItem="lbn-o4-PFy" secondAttribute="centerY" id="iVw-qC-yDN"/>
                                         <constraint firstItem="lbn-o4-PFy" firstAttribute="leading" secondItem="BsK-75-4bp" secondAttribute="leading" id="zVQ-nH-vZw"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="KWL-Pp-0e3" id="x67-pD-3ju"/>
                                     <outlet property="characterImage" destination="S0S-uk-mBk" id="GID-Vn-3Wb"/>
                                     <outlet property="characterName" destination="JkH-CW-PBc" id="a8Z-CL-7rY"/>
                                     <segue destination="I2G-wI-ojZ" kind="presentation" id="LZm-EX-wR7"/>
