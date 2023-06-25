@@ -14,7 +14,8 @@ final class CharacterCell: UITableViewCell {
     
     private let networkManager = NetworkManager.shared
     
-    func configure(with config: CharacterFromCartoon) {
+    func configure(with config: Character?) {
+        guard let config else { return }
         characterName.text = config.name
         
         networkManager.fetchImage(from: config.image) { [weak self] result in

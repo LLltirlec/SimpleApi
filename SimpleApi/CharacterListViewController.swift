@@ -10,35 +10,47 @@ import UIKit
 final class CharacterListViewController: UITableViewController {
     
     private let networkManager = NetworkManager.shared
-    let link = "https://rickandmortyapi.com/api/character/"
+    private var characters: RickAndMorty!
     
-    // MARK: - Table view data source
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetchData(url: RickAndMortyAPI.baseURL.url)
+    }
     
+    func fetchData(url: URL?) {
+        networkManager.fetch(RickAndMorty.self, from: url) { [weak self] result in
+            switch result {
+            case .success(let characters):
+                self?.characters = characters
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let showInfoVC = segue.destination as? ShowInfoViewController else { return }
+        showInfoVC.character = characters?.results[indexPath.row]
+    }
+    
+}
+
+// MARK: - Table view data source
+extension CharacterListViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        19
+        characters?.results.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "character", for: indexPath)
         guard let cell = cell as? CharacterCell else { return UITableViewCell() }
+        let character = characters?.results[indexPath.row]
+        cell.configure(with: character)
         
-        let apiLink = URL(string: "\(link)\(indexPath.row + 1)")!
-        
-        networkManager.fetch(CharacterFromCartoon.self, from: apiLink) { result in
-            switch result {
-            case .success(let character):
-                cell.configure(with: character)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let showInfo = Bundle.main.loadNibNamed("ShowInfo", owner: self)?.first as? ShowInfo else { return }
-        showInfo.load(fromLink: URL(string: "\(link)\(indexPath.row + 1)")!)
-        present(showInfo, animated: true)
-    }
-    
 }

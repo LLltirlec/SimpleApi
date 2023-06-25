@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct CharacterFromCartoon: Decodable {
+struct RickAndMorty: Decodable {
+    let results: [Character]
+}
+
+struct Character: Decodable {
     let name: String
     let status: String
     let species: String
@@ -16,22 +20,46 @@ struct CharacterFromCartoon: Decodable {
     let origin: SecInfo
     let location: SecInfo
     let image: URL
-    let episode: [String]
+    let episode: [URL]
+    
+    var descriprion: String {
+        """
+        Name: \(name)
+        Status: \(status)
+        Species: \(species)
+        Gender: \(gender)
+        Origin: \(origin.name)
+        Location: \(location.name)
+        """
+    }
 }
 
 struct SecInfo: Decodable {
     let name: String
-    let url: String
 }
 
 struct Episode: Decodable {
     let name: String
     let airDate: String
     let episode: String
+    let characters: [URL]
+    
     
     enum CodingKeys: String, CodingKey {
         case name = "name"
         case airDate = "air_date"
         case episode = "episode"
+        case characters = "characters"
+    }
+}
+
+enum RickAndMortyAPI {
+    case baseURL
+    
+    var url: URL {
+        switch self {
+        case .baseURL:
+            return URL(string: "https://rickandmortyapi.com/api/character")!
+        }
     }
 }
