@@ -21,7 +21,7 @@ final class CharacterCell: UITableViewCell {
         guard let config else { return }
         characterName.text = config.name
         
-        networkManager.fetchImage(from: config.image) { [weak self] result in
+        networkManager.fetchImage(from: URL(string: config.image)!) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.characterImage.image = UIImage(data: image)

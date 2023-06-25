@@ -26,7 +26,7 @@ final class ShowInfoViewController: UIViewController {
     }
     
     func loadData(from character: Character) {
-        networkManager.fetchImage(from: character.image) { [weak self] result in
+        networkManager.fetchImage(from: URL(string: character.image)!) { [weak self] result in
                 switch result {
                 case .success(let image):
                     self?.characterImage.image = UIImage(data: image)
@@ -38,7 +38,7 @@ final class ShowInfoViewController: UIViewController {
         
         characterInfo.insertText("\n\nEpisodes:")
         for episode in character.episode {
-            networkManager.fetch(Episode.self, from: episode) { [weak self] result in
+            networkManager.fetch(Episode.self, from: URL(string: episode)!) { [weak self] result in
                 switch result {
                 case .success(let episode):
                     self?.characterInfo.insertText("\nEpisode: \(episode.episode)")

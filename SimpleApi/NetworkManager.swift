@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum NetworkError: Error {
     case invalidURL
@@ -52,4 +53,19 @@ final class NetworkManager {
             }
         }.resume()
     }
+    
+    func fetchAF(from url: URL, completion: @escaping(Result<RickAndMorty, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let data):
+                    let characters = RickAndMorty.getChar(data: data)
+                    completion(.success(RickAndMorty(results: characters)))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+    }
+    
 }

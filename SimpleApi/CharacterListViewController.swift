@@ -16,11 +16,24 @@ final class CharacterListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetchData(url: RickAndMortyAPI.baseURL.url)
+//        fetchData(url: RickAndMortyAPI.baseURL.url)
+        fetchDataAF(url: RickAndMortyAPI.baseURL.url)
     }
     
     func fetchData(url: URL?) {
         networkManager.fetch(RickAndMorty.self, from: url) { [weak self] result in
+            switch result {
+            case .success(let characters):
+                self?.characters = characters
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchDataAF(url: URL?) {
+        networkManager.fetchAF(from: url!) { [weak self] result in
             switch result {
             case .success(let characters):
                 self?.characters = characters
